@@ -1,0 +1,64 @@
+<div class="products">
+  <div class="products-header">
+    <div class="category">
+      <div class="name">Tops</div>
+      <div class="desc">Best tops on the market.</div>
+    </div>
+    <div class="sort">
+      <label for="sort">Sort By:</label>
+      <select
+        name="sort"
+        id="sort"
+        #sortSelect
+        (change)="sortProducts(sortSelect)"
+      >
+        <option value="a-z">Alphabetical A-Z</option>
+        <option value="z-a">Alphabetical Z-A</option>
+        <option value="price-ascend">Price Ascending</option>
+        <option value="price-descend">Price Descending</option>
+      </select>
+    </div>
+    <button class="menu-filters">
+      <i class="fa-solid fa-filter"></i> Filters
+    </button>
+  </div>
+  <div class="list" *ngIf="products.length > 0">
+    <ng-container *ngFor="let product of products; let i = index">
+      <div class="item" *ngIf="i < productsToLoad">
+        <img src="{{ product.image }}" alt="" srcset="" />
+        <div class="item-info">
+          <div class="name">{{ product.name }}</div>
+          <div class="desc">
+            {{ product.description }}
+          </div>
+          <div class="price">
+            {{ product.price.toString().split(".")[0] }}
+            <span class="cents">{{
+              product.price.toString().split(".")[1]
+            }}</span>
+            лв.
+          </div>
+          <div class="rating">
+            <ng-container *ngFor="let rating of getStarRating(product.rating)">
+              <i class="fa-solid fa-star {{ rating }}"></i>
+            </ng-container>
+            <!-- <i class="fa-solid fa-star rated"></i>
+              <i class="fa-solid fa-star rated"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i> -->
+          </div>
+          <button class="addcart">
+            <span>Add to cart</span><i class="fa fa-shopping-cart"></i>
+          </button>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+  <div
+    class="load-more"
+    (click)="loadMore()"
+    *ngIf="maxProducts != productsToLoad"
+  >
+    <button>Load More</button>
+  </div>
+</div>

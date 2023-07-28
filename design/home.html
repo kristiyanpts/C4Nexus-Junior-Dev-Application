@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/home.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Home</title>
+  </head>
+  <body>
+    <header>
+      <button class="menu-button"><i class="fa-solid fa-bars"></i></button>
+      <a href="" class="logo"
+        ><img src="./images/logo.png" alt="" srcset=""
+      /></a>
+      <ul class="nav-list">
+        <li>
+          <a href="">Bags</a>
+        </li>
+        <li>
+          <a href="">Tops</a>
+        </li>
+        <li>
+          <a href="">Bottoms</a>
+        </li>
+        <li>
+          <a href="">Watches</a>
+        </li>
+      </ul>
+      <ul class="nav-list-user">
+        <li>
+          <a href=""><i class="fa-solid fa-user"></i></a>
+        </li>
+        <li>
+          <a href=""><i class="fa-solid fa-cart-shopping"></i></a>
+        </li>
+      </ul>
+    </header>
+
+    <section class="main-container">
+      <div class="filters">
+        <div class="title">Filters</div>
+        <div class="filter">
+          <button>Colors <i class="fa-solid fa-chevron-down"></i></button>
+          <div class="options">
+            <div class="checkbox-wrapper">
+              <input id="color" type="checkbox" select="color" />
+              <label for="color">Checkbox</label>
+            </div>
+            <div class="checkbox-wrapper">
+              <input id="color-2" type="checkbox" select="color" />
+              <label for="color-2">Checkbox</label>
+            </div>
+          </div>
+        </div>
+        <div class="filter">
+          <button>Price <i class="fa-solid fa-chevron-down"></i></button>
+          <div class="options">
+            <!-- <div class="checkbox-wrapper">
+              <input id="color" type="checkbox" select="color" />
+              <label for="color">Checkbox</label>
+            </div>
+            <div class="checkbox-wrapper">
+              <input id="color-2" type="checkbox" select="color" />
+              <label for="color-2">Checkbox</label>
+            </div> -->
+            <input
+              type="range"
+              name="price"
+              id="price"
+              min="100"
+              max="10000"
+              #priceSlider
+            />
+            <p>{{priceSlider.value}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="products">
+        <div class="products-header">
+          <div class="category">
+            <div class="name">Tops</div>
+            <div class="desc">Best tops on the market.</div>
+          </div>
+          <div class="sort">
+            <label for="sort">Sort By:</label>
+            <select name="sort" id="sort">
+              <option value="a-z">Alphabetical A-Z</option>
+              <option value="z-a">Alphabetical Z-A</option>
+              <option value="price-ascend">Price Ascending</option>
+              <option value="price-descend">Price Descending</option>
+            </select>
+          </div>
+          <button class="menu-filters">
+            <i class="fa-solid fa-filter"></i> Filters
+          </button>
+        </div>
+        <div class="list">
+          <div class="item">
+            <img
+              src="https://zajo.bwcdn.net/media/2022/06/1/5/sk-leon-t-shirt-ss-15869-size-large-v-2.jpg"
+              alt=""
+              srcset=""
+            />
+            <div class="item-info">
+              <div class="name">Black T-Shirt</div>
+              <div class="desc">
+                Black T-Shirt made out of 100% cotton material. Black T-Shirt
+                made out of 100% cotton material.
+              </div>
+              <div class="price">100 <span class="cents">99</span> лв.</div>
+              <div class="rating">
+                <i class="fa-solid fa-star rated"></i>
+                <i class="fa-solid fa-star rated"></i>
+                <i class="fa-solid fa-star rated"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <button class="addcart">
+                <span>Add to cart</span><i class="fa fa-shopping-cart"></i>
+              </button>
+            </div>
+          </div>
+          <div class="item">
+            <img
+              src="https://zajo.bwcdn.net/media/2022/06/1/5/sk-leon-t-shirt-ss-15869-size-large-v-2.jpg"
+              alt=""
+              srcset=""
+            />
+            <div class="item-info">
+              <div class="name">Black T-Shirt</div>
+              <div class="desc">
+                Black T-Shirt made out of 100% cotton material. Black T-Shirt
+                made out of 100% cotton material.
+              </div>
+              <div class="price">100 <span class="cents">99</span> лв.</div>
+              <div class="rating">
+                <i class="fa-solid fa-star rated"></i>
+                <i class="fa-solid fa-star rated"></i>
+                <i class="fa-solid fa-star rated"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <button class="addcart">
+                <span>Add to cart</span><i class="fa fa-shopping-cart"></i>
+              </button>
+            </div>
+          </div>
+          <div class="item">
+            <img
+              src="https://zajo.bwcdn.net/media/2022/06/1/5/sk-leon-t-shirt-ss-15869-size-large-v-2.jpg"
+              alt=""
+              srcset=""
+            />
+            <div class="item-info">
+              <div class="name">Black T-Shirt</div>
+              <div class="desc">
+                Black T-Shirt made out of 100% cotton material. Black T-Shirt
+                made out of 100% cotton material.
+              </div>
+              <div class="price">100 <span class="cents">99</span> лв.</div>
+              <div class="rating">
+                <i class="fa-solid fa-star rated"></i>
+                <i class="fa-solid fa-star rated"></i>
+                <i class="fa-solid fa-star rated"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <button class="addcart">
+                <span>Add to cart</span><i class="fa fa-shopping-cart"></i>
+              </button>
+            </div>
+          </div>
+          <div class="item">
+            <img
+              src="https://zajo.bwcdn.net/media/2022/06/1/5/sk-leon-t-shirt-ss-15869-size-large-v-2.jpg"
+              alt=""
+              srcset=""
+            />
+            <div class="item-info">
+              <div class="name">Black T-Shirt</div>
+              <div class="desc">
+                Black T-Shirt made out of 100% cotton material. Black T-Shirt
+                made out of 100% cotton material.
+              </div>
+              <div class="price">100 <span class="cents">99</span> лв.</div>
+              <div class="rating">
+                <i class="fa-solid fa-star rated"></i>
+                <i class="fa-solid fa-star rated"></i>
+                <i class="fa-solid fa-star rated"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <button class="addcart">
+                <span>Add to cart</span><i class="fa fa-shopping-cart"></i>
+              </button>
+            </div>
+          </div>
+          <div class="item">
+            <img
+              src="https://zajo.bwcdn.net/media/2022/06/1/5/sk-leon-t-shirt-ss-15869-size-large-v-2.jpg"
+              alt=""
+              srcset=""
+            />
+            <div class="item-info">
+              <div class="name">Black T-Shirt</div>
+              <div class="desc">
+                Black T-Shirt made out of 100% cotton material. Black T-Shirt
+                made out of 100% cotton material.
+              </div>
+              <div class="price">100 <span class="cents">99</span> лв.</div>
+              <div class="rating">
+                <i class="fa-solid fa-star rated"></i>
+                <i class="fa-solid fa-star rated"></i>
+                <i class="fa-solid fa-star rated"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <button class="addcart">
+                <span>Add to cart</span><i class="fa fa-shopping-cart"></i>
+              </button>
+            </div>
+          </div>
+          <div class="item">
+            <img
+              src="https://zajo.bwcdn.net/media/2022/06/1/5/sk-leon-t-shirt-ss-15869-size-large-v-2.jpg"
+              alt=""
+              srcset=""
+            />
+            <div class="item-info">
+              <div class="name">Black T-Shirt</div>
+              <div class="desc">
+                Black T-Shirt made out of 100% cotton material. Black T-Shirt
+                made out of 100% cotton material.
+              </div>
+              <div class="price">100 <span class="cents">99</span> лв.</div>
+              <div class="rating">
+                <i class="fa-solid fa-star rated"></i>
+                <i class="fa-solid fa-star rated"></i>
+                <i class="fa-solid fa-star rated"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <button class="addcart">
+                <span>Add to cart</span><i class="fa fa-shopping-cart"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="load-more">
+          <button>Load More</button>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="links">
+        <div class="links-block">
+          <div class="title">Categories</div>
+          <div class="links-items">
+            <a href="">Bags</a>
+            <a href="">Tops</a>
+            <a href="">Bottoms</a>
+            <a href="">Watches</a>
+          </div>
+        </div>
+        <div class="links-block">
+          <div class="title">About Us</div>
+          <div class="links-items">
+            <a href="">Contact</a>
+            <a href="">Where to find</a>
+          </div>
+        </div>
+        <div class="links-block">
+          <div class="title">Information</div>
+          <div class="links-items">
+            <a href="">Terms and conditions</a>
+            <a href="">Privacy Policy</a>
+            <a href="">Other</a>
+          </div>
+        </div>
+      </div>
+      <div class="copyright">
+        &copy; Clothing Store 2023. All rights reserved.
+      </div>
+    </footer>
+  </body>
+</html>
+
+<style></style>

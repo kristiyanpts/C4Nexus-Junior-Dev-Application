@@ -1,0 +1,61 @@
+<div class="filters">
+  <div class="title">Filters</div>
+  <div class="filter">
+    <button (click)="toggleFilters('colorsShown')">
+      Colors
+      <i
+        class="fa-solid fa-chevron-down"
+        [ngClass]="{ flipped: filterSettings.colorsShown == true }"
+      ></i>
+    </button>
+    <div class="options" *ngIf="filterSettings.colorsShown">
+      <div class="checkbox-wrapper">
+        <input
+          id="color"
+          type="checkbox"
+          select="color"
+          value="Red"
+          #color1
+          (change)="colorChanges(color1)"
+        />
+        <label for="color">Red</label>
+      </div>
+      <div class="checkbox-wrapper">
+        <input id="color-2" type="checkbox" select="color" />
+        <label for="color-2">Checkbox</label>
+      </div>
+    </div>
+  </div>
+  <div class="filter">
+    <button (click)="toggleFilters('priceShown')">
+      Price
+      <i
+        class="fa-solid fa-chevron-down"
+        [ngClass]="{ flipped: filterSettings.priceShown == true }"
+      ></i>
+    </button>
+    <div class="options" *ngIf="filterSettings.priceShown">
+      <!-- <div class="checkbox-wrapper">
+        <input id="color" type="checkbox" select="color" />
+        <label for="color">Checkbox</label>
+      </div>
+      <div class="checkbox-wrapper">
+        <input id="color-2" type="checkbox" select="color" />
+        <label for="color-2">Checkbox</label>
+      </div> -->
+      <div class="slidecontainer">
+        <input
+          type="range"
+          min="100"
+          max="10000"
+          value="{{ price }}"
+          #priceSlider
+          (change)="priceChanges(priceSlider)"
+          class="slider"
+          id="myRange"
+        />
+        <p>Minimum price: {{ priceSlider.value }} lv</p>
+      </div>
+    </div>
+  </div>
+</div>
