@@ -1,20 +1,38 @@
 <header>
-  <button class="menu-button"><i class="fa-solid fa-bars"></i></button>
+  <button class="menu-button" (click)="toggleMenu()">
+    <i class="fa-solid fa-bars"></i>
+  </button>
   <a routerLink="/bags" class="logo"
     ><img src="/assets/logo.png" alt="" srcset=""
   /></a>
-  <ul class="nav-list">
+  <ul
+    class="nav-list"
+    [ngClass]="{ open: isMenuShown == true }"
+    (click)="toggleMenu()"
+  >
     <li>
-      <a routerLink="/bags">Bags</a>
+      <a
+        routerLink="/bags"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        >Bags</a
+      >
     </li>
     <li>
-      <a routerLink="/tops">Tops</a>
+      <a
+        routerLink="/tops"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        >Tops</a
+      >
     </li>
     <li>
-      <a routerLink="/bottoms">Bottoms</a>
-    </li>
-    <li>
-      <a routerLink="/watches">Watches</a>
+      <a
+        routerLink="/bottoms"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        >Bottoms</a
+      >
     </li>
   </ul>
   <ul class="nav-list-user">

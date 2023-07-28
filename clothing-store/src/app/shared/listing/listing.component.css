@@ -15,6 +15,7 @@
   height: 50px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   background-color: rgb(238, 238, 238);
 }
 
@@ -67,7 +68,7 @@
   padding-top: 1%;
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 5px;
 }
 
 .item {
@@ -78,6 +79,8 @@
 
 .item img {
   width: 300px !important;
+  max-height: 300px;
+  overflow: hidden;
 }
 
 .item-info {
@@ -199,6 +202,9 @@
   align-items: center;
   justify-content: center;
   padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .load-more button {
@@ -218,9 +224,21 @@
   color: white;
 }
 
+.no-products {
+  position: relative;
+  width: 100%;
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-size: 30px;
+}
+
 @media only screen and (max-width: 1200px) {
   .list {
     justify-content: center;
+  }
+  .menu-filters {
+    display: block;
   }
 }
 

@@ -19,6 +19,7 @@ header {
   display: flex;
   align-items: center;
   gap: 5px;
+  transition: 0.3s all ease;
 }
 
 .nav-list li a,
@@ -51,6 +52,10 @@ header {
 .nav-list a:hover,
 .nav-list-user a:hover,
 .menu-button:hover {
+  color: black !important;
+}
+
+.active {
   color: black !important;
 }
 

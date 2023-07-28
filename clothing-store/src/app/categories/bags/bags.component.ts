@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { MOCK_BAGS } from 'src/app/mock-data/bags';
 import { Product } from 'src/app/types/product';
 
@@ -10,6 +11,10 @@ import { Product } from 'src/app/types/product';
 export class BagsComponent implements OnInit {
   bags: Product[] = [];
   filterColors: string[] = [];
+  bagsInfo: any = {
+    name: 'Bags',
+    description: 'Top quality bags for you.',
+  };
 
   ngOnInit(): void {
     this.bags = MOCK_BAGS;
@@ -20,6 +25,5 @@ export class BagsComponent implements OnInit {
         }
       });
     });
-    console.log(this.filterColors);
   }
 }

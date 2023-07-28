@@ -1,9 +1,15 @@
 <div class="products">
   <div class="products-header">
     <div class="category">
-      <div class="name">Tops</div>
-      <div class="desc">Best tops on the market.</div>
+      <div class="name">{{ listingInfo.name }}</div>
+      <div class="desc">{{ listingInfo.description }}</div>
     </div>
+    <span
+      >Displaying {{ productsLoaded.length }}/{{
+        productsToLoad
+      }}
+      products</span
+    >
     <div class="sort">
       <label for="sort">Sort By:</label>
       <select
@@ -18,12 +24,12 @@
         <option value="price-descend">Price Descending</option>
       </select>
     </div>
-    <button class="menu-filters">
+    <button class="menu-filters" (click)="toggleFilters()">
       <i class="fa-solid fa-filter"></i> Filters
     </button>
   </div>
-  <div class="list" *ngIf="products.length > 0">
-    <ng-container *ngFor="let product of products; let i = index">
+  <div class="list" *ngIf="productsLoaded.length > 0">
+    <ng-container *ngFor="let product of productsLoaded; let i = index">
       <div class="item" *ngIf="i < productsToLoad">
         <img src="{{ product.image }}" alt="" srcset="" />
         <div class="item-info">
@@ -42,22 +48,21 @@
             <ng-container *ngFor="let rating of getStarRating(product.rating)">
               <i class="fa-solid fa-star {{ rating }}"></i>
             </ng-container>
-            <!-- <i class="fa-solid fa-star rated"></i>
-              <i class="fa-solid fa-star rated"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i> -->
           </div>
-          <button class="addcart">
+          <button class="addcart" (click)="buyProduct()">
             <span>Add to cart</span><i class="fa fa-shopping-cart"></i>
           </button>
         </div>
       </div>
     </ng-container>
   </div>
+  <div class="no-products" *ngIf="productsLoaded.length == 0">
+    No products found.
+  </div>
   <div
     class="load-more"
     (click)="loadMore()"
-    *ngIf="maxProducts != productsToLoad"
+    *ngIf="productsLoaded.length > 0 && maxProducts != productsToLoad"
   >
     <button>Load More</button>
   </div>

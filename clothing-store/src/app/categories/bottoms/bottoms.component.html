@@ -1,1 +1,8 @@
-<p>bottoms works!</p>
+<section class="main-container">
+  <app-filters [colorsInput]="filterColors" />
+  <app-listing
+    [products]="bottoms"
+    [listingInfo]="bottomsInfo"
+    style="width: 100%"
+  />
+</section>

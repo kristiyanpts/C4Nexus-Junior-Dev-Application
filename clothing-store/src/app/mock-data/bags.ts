@@ -9,7 +9,7 @@ export const MOCK_BAGS: Product[] = [
     description: 'Very expensive bag!',
     price: 4500.99,
     rating: 4,
-    colors: ['Beige', 'Brown', 'Brown Pink'],
+    colors: ['Beige', 'Brown', 'Brown Pink', 'Red'],
   },
   {
     id: '2',
@@ -19,7 +19,7 @@ export const MOCK_BAGS: Product[] = [
     description: 'Very expensive bag!',
     price: 3500.99,
     rating: 4,
-    colors: ['Beige', 'Brown', 'Brown Pink'],
+    colors: ['Beige', 'Brown', 'Brown Pink', 'Orange'],
   },
   {
     id: '3',

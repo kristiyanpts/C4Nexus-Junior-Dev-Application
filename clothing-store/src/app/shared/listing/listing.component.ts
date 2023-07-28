@@ -1,4 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { FiltersService } from 'src/app/services/filters.service';
 import { Product } from 'src/app/types/product';
 
 @Component({
@@ -7,10 +10,21 @@ import { Product } from 'src/app/types/product';
   styleUrls: ['./listing.component.css'],
 })
 export class ListingComponent implements OnInit {
+  constructor(
+    private route: ActivatedRoute,
+    private filterService: FiltersService,
+    private notificationsService: ToastrService
+  ) {}
+
   @Input() products: Product[] = [];
-  productsUnchaged: Product[] = [];
-  productsToLoad: number = 10;
+  @Input() listingInfo: any = {};
+  productsLoaded: Product[] = [];
+  productsToLoad: number = 5;
   maxProducts: number = 0;
+
+  colorFilters: string[] = [];
+  priceFilter: number = 0;
+  sortSelected: string = '';
 
   sortProductsFunctions: any = {
     'a-z': (products: Product[]) =>
@@ -25,7 +39,24 @@ export class ListingComponent implements OnInit {
 
   ngOnInit(): void {
     this.maxProducts = this.products.length;
-    this.productsUnchaged = this.products;
+    this.productsLoaded = this.products.slice(0, this.productsToLoad);
+    this.route.queryParams.subscribe({
+      next: (params: any) => {
+        if (params.hasOwnProperty('color') && params.hasOwnProperty('price')) {
+          if (params?.color != '') {
+            this.colorFilters = params.color.split(',');
+          } else {
+            this.colorFilters = [];
+          }
+          this.priceFilter = params?.price;
+          this.filterProducts();
+        } else {
+          this.colorFilters = [];
+          this.priceFilter = 1;
+          this.filterProducts();
+        }
+      },
+    });
   }
 
   getStarRating(rating: number) {
@@ -48,10 +79,49 @@ export class ListingComponent implements OnInit {
     } else {
       this.productsToLoad += 10;
     }
+
+    this.productsLoaded = this.products.slice(0, this.productsToLoad);
+    this.filterProducts();
   }
 
-  sortProducts(select: HTMLSelectElement) {
-    this.products = this.productsUnchaged;
-    this.products = this.sortProductsFunctions[select.value](this.products);
+  sortProducts(select?: HTMLSelectElement, reSort?: boolean) {
+    if (reSort == true) {
+      this.sortSelected = this.sortSelected;
+    } else {
+      this.sortSelected = select?.value || this.sortSelected;
+    }
+    this.productsLoaded = this.sortProductsFunctions[this.sortSelected](
+      this.productsLoaded
+    );
+  }
+
+  filterProducts(): void {
+    this.productsLoaded = this.products.slice(0, this.productsToLoad);
+
+    if (this.colorFilters.length > 0) {
+      this.colorFilters.forEach(
+        (c) =>
+          (this.productsLoaded = this.productsLoaded.filter((p) =>
+            p.colors.includes(c)
+          ))
+      );
+    }
+
+    this.productsLoaded = this.productsLoaded.filter(
+      (p) => p.price >= this.priceFilter
+    );
+
+    this.sortProducts(undefined, true);
+  }
+
+  toggleFilters() {
+    this.filterService.toggleFilters();
+  }
+
+  buyProduct() {
+    this.notificationsService.success(
+      'Product has been added to your cart',
+      'Success'
+    );
   }
 }

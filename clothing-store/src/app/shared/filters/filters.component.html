@@ -1,4 +1,4 @@
-<div class="filters">
+<div class="filters" [ngClass]="{ open: isMenuShown == true }">
   <div class="title">Filters</div>
   <div class="filter">
     <button (click)="toggleFilters('colorsShown')">
@@ -9,21 +9,19 @@
       ></i>
     </button>
     <div class="options" *ngIf="filterSettings.colorsShown">
-      <div class="checkbox-wrapper">
-        <input
-          id="color"
-          type="checkbox"
-          select="color"
-          value="Red"
-          #color1
-          (change)="colorChanges(color1)"
-        />
-        <label for="color">Red</label>
-      </div>
-      <div class="checkbox-wrapper">
-        <input id="color-2" type="checkbox" select="color" />
-        <label for="color-2">Checkbox</label>
-      </div>
+      <ng-container *ngFor="let color of colorsInput; let i = index">
+        <div class="checkbox-wrapper">
+          <input
+            id="color-{{ i }}"
+            type="checkbox"
+            value="{{ color }}"
+            #colorInput
+            [checked]="colorFiltered.includes(color) == true"
+            (change)="colorChanges(colorInput)"
+          />
+          <label for="color-{{ i }}">{{ color }}</label>
+        </div>
+      </ng-container>
     </div>
   </div>
   <div class="filter">
@@ -46,7 +44,7 @@
       <div class="slidecontainer">
         <input
           type="range"
-          min="100"
+          min="1"
           max="10000"
           value="{{ price }}"
           #priceSlider
