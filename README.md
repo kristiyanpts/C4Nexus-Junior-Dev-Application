@@ -16,7 +16,7 @@ For testing purposes when clicking on a category it only loads 10 products (2 ro
 
 ### 1. Download/clone the repository
 ### 2. Open it in VS Code
-### 3. Open a terminal and run the following commands
+### 3. Select the clothing-store folder, open a terminal and run the following commands
 ```
 npm i
 ng serve
