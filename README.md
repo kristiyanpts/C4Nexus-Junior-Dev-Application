@@ -4,7 +4,9 @@ This small project was a task from C4 Nexus for the position Junior Dev. It has 
 It consists of 3 product listing pages (angular components) which are located in the the categories folder. All of them use two other components inside of them. The first one being the filters, which has a directive to set the available colors for filtering, and the second one being the actual listing page, which also has 2 directives - first one accepting all of the products from that category and the second one being just some header information.
 
 ### IMPORTANT!
-For testing purposes when clicking on a category it only loads 5 products initially and by clicking "Load More" it loads 10 more.
+For testing purposes when clicking on a category it only loads 10 products (2 rows) initially and by clicking "Load More" it loads 10 more.
+
+Live Demo - [https://c4nexus-application-jdev.netlify.app/bags](https://c4nexus-application-jdev.netlify.app/bags)
 
 # 1. Technical Description
 ### The project was made using the following:
@@ -16,7 +18,7 @@ For testing purposes when clicking on a category it only loads 5 products initia
 
 ### 1. Download/clone the repository
 ### 2. Open it in VS Code
-### 3. Open a terminal and run the following commands
+### 3. Select the clothing-store folder, open a terminal and run the following commands
 ```
 npm i
 ng serve
