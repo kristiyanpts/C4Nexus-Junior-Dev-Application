@@ -9,14 +9,17 @@ const routes: Routes = [
   {
     path: 'bags',
     component: BagsComponent,
+    title: 'Bags | Clothing Store',
   },
   {
     path: 'tops',
     component: TopsComponent,
+    title: 'Tops | Clothing Store',
   },
   {
     path: 'bottoms',
     component: BottomsComponent,
+    title: 'Bottoms | Clothing Store',
   },
 ];
 

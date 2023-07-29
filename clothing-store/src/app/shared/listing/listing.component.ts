@@ -19,7 +19,7 @@ export class ListingComponent implements OnInit {
   @Input() products: Product[] = [];
   @Input() listingInfo: any = {};
   productsLoaded: Product[] = [];
-  productsToLoad: number = 5;
+  productsToLoad: number = 10;
   maxProducts: number = 0;
 
   colorFilters: string[] = [];
