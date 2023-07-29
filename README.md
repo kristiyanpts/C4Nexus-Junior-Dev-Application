@@ -6,6 +6,8 @@ It consists of 3 product listing pages (angular components) which are located in
 ### IMPORTANT!
 For testing purposes when clicking on a category it only loads 10 products (2 rows) initially and by clicking "Load More" it loads 10 more.
 
+Live Demo - [https://c4nexus-application-jdev.netlify.app/bags](https://c4nexus-application-jdev.netlify.app/bags)
+
 # 1. Technical Description
 ### The project was made using the following:
 - **Angular** - Front-End
